@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Book</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>➕ Add New Book</h1>
+    </header>
+
+    <div class="form-box">
+
+        <form action="/add" method="POST">
+
+            <input type="text" name="title" placeholder="Book Title" required>
+
+            <input type="text" name="author" placeholder="Author Name" required>
+
+            <input type="text" name="isbn" placeholder="ISBN Number" required>
+
+            <input type="number" name="rating" min="1" max="5" placeholder="Rating 1-5" required>
+
+            <textarea name="review" placeholder="Your Review"></textarea>
+
+            <input type="date" name="date_read" required>
+
+            <button type="submit">Save Book</button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

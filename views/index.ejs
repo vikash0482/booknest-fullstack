@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookNest</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>📚 BookNest</h1>
+        <p>Your Personal Reading Tracker</p>
+    </header>
+
+    <div class="top-bar">
+
+        <a href="/add" class="add-btn">➕ Add Book</a>
+
+        <form method="GET" action="/" class="search-form">
+            <input type="text" name="search" placeholder="Search books..." value="<%= search %>">
+
+            <select name="sort">
+                <option value="latest">Latest</option>
+                <option value="title">Title A-Z</option>
+                <option value="rating">Highest Rated</option>
+            </select>
+
+            <button type="submit">Search</button>
+        </form>
+
+    </div>
+
+    <div class="stats">
+        <h2>Total Books Read: <%= totalBooks %></h2>
+    </div>
+
+    <div class="container">
+
+        <% books.forEach(book => { %>
+
+        <div class="card">
+
+            <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg">
+
+            <div class="content">
+                <h2><%= book.title %></h2>
+                <p><strong>Author:</strong> <%= book.author %></p>
+                <p><strong>Rating:</strong> ⭐ <%= book.rating %>/5</p>
+                <p><strong>Review:</strong> <%= book.review %></p>
+                <p><strong>Date:</strong> <%= book.date_read.toDateString() %></p>
+
+                <div class="actions">
+                    <a href="/edit/<%= book.id %>">✏ Edit</a>
+                    <a href="/delete/<%= book.id %>" onclick="return confirm('Delete book?')">🗑 Delete</a>
+                </div>
+
+            </div>
+        </div>
+
+        <% }) %>
+
+    </div>
+
+    <footer>
+        <p> Made by Vikash </p>
+    </footer>
+
+</body>
+
+</html>
